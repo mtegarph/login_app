@@ -14,13 +14,22 @@ class RegisterHive extends HiveObject {
   String? noHp;
   @HiveField(4)
   String? id;
-  RegisterHive({this.email, this.password, this.name, this.noHp, this.id});
-  factory RegisterHive.fromObatEntity(RegisterEntity registerEntity) {
+  @HiveField(5)
+  String? username;
+  RegisterHive(
+      {this.email,
+      this.password,
+      this.name,
+      this.noHp,
+      this.id,
+      this.username});
+  factory RegisterHive.fromRegisterEntity(RegisterEntity registerEntity) {
     return RegisterHive(
         id: registerEntity.id,
         email: registerEntity.email,
         password: registerEntity.password,
         name: registerEntity.name,
-        noHp: registerEntity.noHp);
+        noHp: registerEntity.noHp,
+        username: registerEntity.username);
   }
 }

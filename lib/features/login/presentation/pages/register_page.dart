@@ -30,24 +30,19 @@ class _RegisterPageState extends State<RegisterPage> {
         child: BlocBuilder<PostRegisterBloc, PostRegisterState>(
           builder: (context, state) {
             if (state is GetDataRegisterSuccess) {
-              email.text = state.data.email.toString() == 'null'
-                  ? ''
-                  : state.data.email.toString();
-              username.text = state.data.username.toString() == 'null'
-                  ? ''
-                  : state.data.username.toString();
-              noHp.text = state.data.noHp.toString() == 'null'
-                  ? ''
-                  : state.data.noHp.toString();
-              password.text = state.data.password.toString() == 'null'
-                  ? ''
-                  : state.data.password.toString();
-              passwordConfirm.text = state.data.password.toString() == 'null'
-                  ? ''
-                  : state.data.password.toString();
-              nama.text = state.data.name.toString() == 'null'
-                  ? ''
-                  : state.data.name.toString();
+              email.value =
+                  TextEditingValue(text: state.data.email?.toString() ?? '');
+              username.value =
+                  TextEditingValue(text: state.data.username?.toString() ?? '');
+              noHp.value =
+                  TextEditingValue(text: state.data.noHp?.toString() ?? '');
+              password.value =
+                  TextEditingValue(text: state.data.password?.toString() ?? '');
+              passwordConfirm.value =
+                  TextEditingValue(text: state.data.password?.toString() ?? '');
+              nama.value =
+                  TextEditingValue(text: state.data.name?.toString() ?? '');
+
               return SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30.0),

@@ -13,12 +13,12 @@ class HiveData {
       if (items == null) {
         await registerHive.clear();
 
-        await registerHive.add(RegisterHive.fromObatEntity(addRegister));
+        await registerHive.add(RegisterHive.fromRegisterEntity(addRegister));
         print('berhasil');
       } else {
         print('berhasil update');
         await registerHive.put(
-            items.key, RegisterHive.fromObatEntity(addRegister));
+            items.key, RegisterHive.fromRegisterEntity(addRegister));
       }
     } catch (e) {
       throw Exception(e);

@@ -68,7 +68,7 @@ class LoginRepositoryImpl extends LoginRepository {
           password: result?.password,
           noHp: result?.noHp,
           email: result?.email,
-          username: result?.name);
+          username: result?.username);
       return Right(data);
     } catch (e) {
       throw Left(Exception(e));

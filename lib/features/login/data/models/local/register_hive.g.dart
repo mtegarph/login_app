@@ -22,13 +22,14 @@ class RegisterHiveAdapter extends TypeAdapter<RegisterHive> {
       name: fields[2] as String?,
       noHp: fields[3] as String?,
       id: fields[4] as String?,
+      username: fields[5] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, RegisterHive obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(6)
       ..writeByte(0)
       ..write(obj.email)
       ..writeByte(1)
@@ -38,7 +39,9 @@ class RegisterHiveAdapter extends TypeAdapter<RegisterHive> {
       ..writeByte(3)
       ..write(obj.noHp)
       ..writeByte(4)
-      ..write(obj.id);
+      ..write(obj.id)
+      ..writeByte(5)
+      ..write(obj.username);
   }
 
   @override
