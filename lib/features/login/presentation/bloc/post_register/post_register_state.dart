@@ -27,3 +27,8 @@ class RegisterPostFailed extends PostRegisterState {
   @override
   List<Object> get props => [message];
 }
+
+class GetDataRegisterSuccess extends PostRegisterState {
+  final RegisterEntity data;
+  const GetDataRegisterSuccess({required this.data});
+}

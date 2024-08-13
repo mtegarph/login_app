@@ -6,8 +6,8 @@ import 'package:login_app/config/theme/app_theme.dart';
 import 'package:login_app/config/theme/app_widget.dart';
 import 'package:login_app/core/constant/constant.dart';
 import 'package:login_app/core/parameter/parameter.dart';
-import 'package:login_app/features/dashboard/presentation/pages/dahsboard_page.dart';
 import 'package:login_app/features/login/presentation/bloc/post_login/post_login_bloc.dart';
+import 'package:login_app/features/login/presentation/bloc/post_register/post_register_bloc.dart';
 import 'package:login_app/features/login/presentation/pages/register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -91,11 +91,11 @@ class _LoginPageState extends State<LoginPage> {
                     listener: (context, state) {
                       print(state.toString());
                       if (state is LoginPostSuccess) {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const DahsboardPage(),
-                            ));
+                        // Navigator.pushReplacement(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //       builder: (context) => const DahsboardPage(),
+                        //     ));
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             backgroundColor: Colors.green,
@@ -142,6 +142,9 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       GestureDetector(
                         onTap: () {
+                          context
+                              .read<PostRegisterBloc>()
+                              .add(const GetDataRegister());
                           Navigator.push(
                               context,
                               MaterialPageRoute(

@@ -12,3 +12,7 @@ class PostRegister extends PostRegisterEvent {
 
   const PostRegister({required this.parameterUpdate});
 }
+
+class GetDataRegister extends PostRegisterEvent {
+  const GetDataRegister();
+}
