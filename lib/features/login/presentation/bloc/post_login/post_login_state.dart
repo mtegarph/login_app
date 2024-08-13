@@ -12,9 +12,16 @@ final class PostLoginInitial extends PostLoginState {}
 class LoginPostLoading extends PostLoginState {}
 
 class LoginPostSuccess extends PostLoginState {
-  final String? message;
+  final String message;
 
   const LoginPostSuccess({required this.message});
+  @override
+  List<Object> get props => [message];
+}
+
+class GetTokenSuccess extends PostLoginState {
+  final String? token;
+  const GetTokenSuccess({required this.token});
 }
 
 class LoginPostFailed extends PostLoginState {

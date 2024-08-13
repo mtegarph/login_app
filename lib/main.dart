@@ -35,10 +35,10 @@ class MyApp extends StatelessWidget {
         ),
         home: BlocBuilder<PostLoginBloc, PostLoginState>(
           builder: (context, state) {
-            if (state is LoginPostSuccess) {
-              return state.message != null
-                  ? const DahsboardPage()
-                  : const SplashScreen();
+            if (state is GetTokenSuccess) {
+              return state.token == 'null'
+                  ? const SplashScreen()
+                  : const DahsboardPage();
             }
             return const SizedBox.shrink();
           },

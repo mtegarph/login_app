@@ -25,6 +25,6 @@ class PostLoginBloc extends Bloc<PostLoginEvent, PostLoginState> {
     emit(LoginPostLoading());
     final result = await getToken.call();
     result.fold((l) => emit(LoginPostFailed(message: l.message)),
-        (r) => emit(LoginPostSuccess(message: r)));
+        (r) => emit(GetTokenSuccess(token: r)));
   }
 }

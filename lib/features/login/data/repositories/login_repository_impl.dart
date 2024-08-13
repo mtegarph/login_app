@@ -43,6 +43,7 @@ class LoginRepositoryImpl extends LoginRepository {
   Future<Either<Failure, String>> getToken() async {
     try {
       final result = await localLogin.getToken();
+      print('data $result');
       return Right(result);
     } on ServerException {
       return const Left(ServerFailure("An Error Has Occured"));
