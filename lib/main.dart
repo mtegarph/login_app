@@ -7,6 +7,7 @@ import 'package:login_app/features/login/data/models/local/register_hive.dart';
 import 'package:login_app/features/login/presentation/bloc/post_login/post_login_bloc.dart';
 import 'package:login_app/features/login/presentation/bloc/post_register/post_register_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:login_app/features/login/presentation/pages/login_page.dart';
 
 Future<void> main() async {
   await Hive.initFlutter();
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
             if (state is GetTokenSuccess) {
               return state.token == 'null'
                   ? const SplashScreen()
-                  : const DahsboardPage();
+                  : const LoginPage();
             }
             return const SizedBox.shrink();
           },
